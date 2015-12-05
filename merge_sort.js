@@ -1,11 +1,9 @@
-function merge_sort(array)
-{
+function merge_sort(array){
     //maybe check if super short, then do insertion or selection sort instead
     mSort(array, 0, array.length);
     return array;
 }
-function mSort(array, start, end)
-{
+function mSort(array, start, end){
     var size = end - start;
     if(size < 2) { return; } //exit case if array is 1 element
     var middle = start + Math.floor(size/2) //split in half
@@ -14,16 +12,12 @@ function mSort(array, start, end)
     mSort(array, middle, end); // keep splitting in half
     merge(array, start, middle, end); //put them back together
 }
-function merge(array, start, middle, end)
-{
-    for(var i = start; i < middle; i++)
-    {
-        if(array[i] > array[middle])
-        {
+function merge(array, start, middle, end){
+    for(var i = start; i < middle; i++){
+        if(array[i] > array[middle]){
             var v = array[i];
             array[i] = array[middle];
-            while(middle + 1 < end && array[middle+1] < v)
-            {
+            while(middle + 1 < end && array[middle+1] < v){
                 var temp = array[middle];
                 array[middle] = array[middle+1];
                 array[middle+1] = temp;
